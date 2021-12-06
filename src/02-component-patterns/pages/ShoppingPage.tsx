@@ -1,39 +1,38 @@
-import { ProductButtons, ProductCard, ProductImage, ProductTitle } from "../components";
+import { ProductCard, ProductImage, ProductTitle, ProductButtons } from '../components';
 
 
-
-const product={
-    id:'1',
-    title:'Coffee Mug - Card',
-    img:'./coffee-mug.png'
+const product = {
+    id: '1',
+    title: 'Coffee Mug - Card',
+    img: './coffee-mug.png'
 }
 
-const ShoppingPage = () => {
+
+
+export const ShoppingPage = () => {
     return (
         <div>
             <h1>Shopping Store</h1>
             <hr />
-            <div style={
-                {display: 'flex',
-                flexDirection: 'row',
-                flexWrap:'wrap'}}>
 
-                <ProductCard product={product}>
-                    
+            <div style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'wrap'
+            }}>
+
+                <ProductCard product={ product }>
                     <ProductCard.Image />
-                    <ProductCard.Title />
-                    <ProductCard.Buttons />
+                    <ProductCard.Title title={ 'Hola Mundo' } />
+                    <ProductCard.Buttons  />
                 </ProductCard>
 
-                <ProductCard product={product}>
+                <ProductCard product={ product }>
                     <ProductImage />
                     <ProductTitle />
                     <ProductButtons />
                 </ProductCard>
-                
             </div>
         </div>
     )
 }
-
-export default ShoppingPage

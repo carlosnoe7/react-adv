@@ -1,26 +1,25 @@
-import { useContext } from "react";
-import { ProductContext } from "./ProductCard";
-import styles from '../styles/styles.module.css';
+import { useContext } from 'react';
+import { ProductContext } from './ProductCard';
 
+import styles from '../styles/styles.module.css'
 import noImage from '../assets/no-image.jpg';
 
 
-export const ProductImage=({img=''})=>{
+export const ProductImage = ({ img = '' }) => {
 
-    const {product}=useContext(ProductContext);
-    let imgToShow:string;
+    const { product } = useContext( ProductContext );
+    let imgToShow: string;
 
-    if (img) {
-        imgToShow=img;
+    if ( img ) {
+        imgToShow = img;
+    } else if ( product.img ) {
+        imgToShow = product.img
+    } else {
+        imgToShow = noImage;
     }
-    else if(product.img){
-        imgToShow=product.img;
-    }
-    else{
-        imgToShow=noImage;
-    }
+
 
     return (
-        <img className={styles.productImg} src={imgToShow} alt="Product Image" />
-    )
+        <img className={ styles.productImg } src={ imgToShow } alt="Product" />
+    );
 }
