@@ -10,15 +10,14 @@ import { Props as ProductTitleProps} from '../components/ProductTitle';
 
 export interface Product {
     id: string;
-    title: string;
     img?: string;
+    title: string;
 }
 
 export interface ProductContextProps {
     counter: number;
     product: Product;
     increaseBy: ( value: number ) => void;
-
 }
 
 
@@ -39,3 +38,6 @@ export interface ProductInCart extends Product{
 
 }
 
+export interface ProductInCart extends Product {
+    count: number
+}
