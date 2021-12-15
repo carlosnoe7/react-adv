@@ -23,33 +23,33 @@ export  const useShoppingCart=()=>{
 
             const productInCart:ProductInCart=oldShoppingCart[product.id] || {...product,count:0};
 
-            if (Math.max(productInCart.count + count,0)>0) {
-                productInCart.count +=count;    
-
-                return {
-                    ...oldShoppingCart,
-                    [product.id]:productInCart
-                }
-            }
-            else{
-                const shoppingCart = {...oldShoppingCart}
-                delete shoppingCart[product.id]
-                return {...shoppingCart}
-            }
-
-
-            // if (count===0) {
-            //     const shoppingCart = {...oldShoppingCart}
-            //     delete shoppingCart[product.id]
-            //     return shoppingCart
-            // }
-            // else{
+            // if (Math.max(productInCart.count + count,0)>0) {
+            //     productInCart.count +=count;    
 
             //     return {
             //         ...oldShoppingCart,
-            //         [product.id]:{...product,count},
+            //         [product.id]:productInCart
             //     }
             // }
+            // else{
+            //     const shoppingCart = {...oldShoppingCart}
+            //     delete shoppingCart[product.id]
+            //     return {...shoppingCart}
+            // }
+
+
+            if (count===0) {
+                const shoppingCart = {...oldShoppingCart}
+                delete shoppingCart[product.id]
+                return shoppingCart
+            }
+            else{
+
+                return {
+                    ...oldShoppingCart,
+                    [product.id]:{...product,count},
+                }
+            }
 
 
         })
