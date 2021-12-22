@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { InitialValues, onChangeArgs, Product } from '../interfaces/interfaces';
+import { InitialValues, onChangeArgs, Product } from '../interfaces/Interfaces';
+
 
 interface useProductArgs{
     product:Product;
