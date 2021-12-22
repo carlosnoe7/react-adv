@@ -1,59 +1,23 @@
-import { Props as ProductCardProps } from '../components/ProductCard';
-import { Props as ProductImageProps } from '../components/ProductImage';
-import { Props as ProductTitleProps} from '../components/ProductTitle';
+import { ReactElement } from "react";
 
-
-// export interface ProductCardProps {
-//     product: Product;
-//     children?: ReactElement | ReactElement[] 
-// }
-
-export interface Product {
-    id: string;
-    img?: string;
-    title: string;
-}
-
-export interface ProductContextProps {
-    counter: number;
+export interface ProductCardProps{
     product: Product;
-    increaseBy: ( value: number ) => void;
-    maxCount?: number;
+    children?:ReactElement | ReactElement[];
+}
+export interface Product{
+    id: string;
+    title: string;
+    img?:string;
 }
 
-
-export interface ProductCardHOCProps {
-    ({ children, product }: ProductCardProps ):JSX.Element,
-    Title:     (Props:ProductTitleProps)    => JSX.Element,
-    Image:     (Props: ProductImageProps)   => JSX.Element,
-    Buttons:   (Props:{className?: string}) => JSX.Element
-}
-
-export interface onChangeArgs{
+export interface ProductContextProps{
+    counter:number;
+    increaseBy:(value: number) => void;
     product:Product;
-    count:number;
 }
-
-export interface ProductInCart extends Product{
-    count: number;
-
-}
-
-export interface ProductInCart extends Product {
-    count: number
-}
-
-export interface InitialValues{
-    count?:number;
-    maxCount?: number;
-}
-
-export interface ProductCardHandlers{
-    count:number;
-    isMaxCountReached:boolean;
-    maxCount?:number;
-    product:Product;
-
-    increaseBy:(value:number) => void;
-    reset:() => void;
+export interface ProductCardHOCProps{
+    ({children,product}:ProductCardProps):JSX.Element,
+    Title:({title}:{title?:string })=>JSX.Element,
+    Image: ({ img }: {img?: string }) => JSX.Element,
+    Buttons:() => JSX.Element
 }
